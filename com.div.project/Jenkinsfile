@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
+        jdk 'JDK'
+    }
+
+    stages {
+
+        stage('Clone') {
+            steps {
+                git 'https://github.com/Rajamurugan325/div-project.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
+        stage('Report') {
+            steps {
+                publishHTML([
+                    reportDir: 'test-output',
+                    reportFiles: 'index.html',
+                    reportName: 'TestNG Report'
+                ])
+            }
+        }
+    }
+}
