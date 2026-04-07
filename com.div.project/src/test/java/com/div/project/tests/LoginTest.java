@@ -10,5 +10,6 @@ public class LoginTest extends BaseClass {
     public void validLoginTest() {
         LoginPage login = new LoginPage(driver);
         login.login("standard_user", "secret_sauce");
+        Assert.assertTrue(driver.getTitle().contains("Swag Labs"));
     }
 }
