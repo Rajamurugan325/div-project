@@ -10,5 +10,6 @@ public class InvalidLogin extends BaseClass {
     public void invalidLogin() {
         LoginPage login = new LoginPage(driver);
         login.login("wrong_user", "wrong_pass");
+        Assert.assertTrue(driver.getPageSource().contains("Epic sadface"));
     }
 }
