@@ -12,14 +12,23 @@ public class Cartvalidation extends BaseClass {
     @Test
     public void validateCart() {
 
+        
         LoginPage login = new LoginPage(driver);
         login.login("standard_user", "secret_sauce");
 
+        
         Productpage products = new Productpage(driver);
         products.addProductToCart();
+
+        
         products.goToCart();
 
+       
         boolean itemPresent = driver.findElement(By.className("inventory_item_name")).isDisplayed();
-        Assert.assertTrue(itemPresent);
+        Assert.assertTrue(itemPresent, "Item is NOT present in cart");
+
+        
+        String productName = driver.findElement(By.className("inventory_item_name")).getText();
+        Assert.assertEquals(productName, "Sauce Labs Backpack");
     }
 }
