@@ -16,20 +16,20 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                bat 'cd com.div.project && mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                bat 'cd com.div.project && mvn test'
             }
         }
 
         stage('Report') {
             steps {
                 publishHTML(target: [
-                    reportDir: 'test-output',
+                    reportDir: 'com.div.project/test-output',
                     reportFiles: 'index.html',
                     reportName: 'TestNG Report'
                 ])
