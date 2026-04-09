@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 pipeline {
     agent any
@@ -38,3 +39,44 @@ pipeline {
         }
     }
 }
+=======
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
+        jdk 'JDK'
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Rajamurugan325/div-project.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'cd com.div.project && mvn clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'cd com.div.project && mvn test'
+            }
+        }
+
+        stage('Report') {
+            steps {
+                publishHTML(target: [
+                    reportDir: 'com.div.project/test-output',
+                    reportFiles: 'index.html',
+                    reportName: 'TestNG Report'
+                ])
+            }
+        }
+    }
+}
+>>>>>>> branch 'main' of https://github.com/Rajamurugan325/div-project.git

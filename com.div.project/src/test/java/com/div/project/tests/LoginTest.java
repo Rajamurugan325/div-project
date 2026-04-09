@@ -12,7 +12,6 @@ public class LoginTest extends BaseClass {
         LoginPage login = new LoginPage(driver);
         login.login("standard_user", "secret_sauce");
 
-        // ✅ ADD THIS LINE (IMPORTANT)
-        Assert.assertTrue(true);
+        Assert.assertTrue(true); // ✅ IMPORTANT
     }
 }

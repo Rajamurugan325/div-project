@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
 public class BaseClass {
-
+     
     public WebDriver driver;
 
     @BeforeMethod
