@@ -5,6 +5,7 @@ import org.testng.Assert;
 import com.div.project.pages.LoginPage;
 import org.testng.annotations.Test;
 
+
 public class InvalidLogin extends BaseClass {
 
     @Test
