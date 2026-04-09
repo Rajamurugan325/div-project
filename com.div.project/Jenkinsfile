@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 pipeline {
     agent any
@@ -79,4 +78,3 @@ pipeline {
         }
     }
 }
->>>>>>> branch 'main' of https://github.com/Rajamurugan325/div-project.git
